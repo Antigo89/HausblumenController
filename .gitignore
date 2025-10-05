@@ -1,0 +1,15 @@
+Thumbs.db
+/HausblumenController_stm32f401ccu6/Thumbs.db
+/HausblumenController_kicad/Thumbs.db
+/HausblumenController_kicad/HausblumenController_kicad-backups
+/HausblumenController_stm32f401ccu6/.metadata
+/HausblumenController_stm32f401ccu6/*.metadata
+/HausblumenController_stm32f401ccu6/*.settings
+/HausblumenController_stm32f401ccu6/[Oo]utput
+/HausblumenController_stm32f401ccu6/[Dd]ebug
+/HausblumenController_stm32f401ccu6/*.elf
+/HausblumenController_stm32f401ccu6/*.o
+/HausblumenController_stm32f401ccu6/*.hex
+/HausblumenController_stm32f401ccu6/*.doc
+*.doc
+HausblumenController_status.txt
