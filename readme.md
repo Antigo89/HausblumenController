@@ -10,5 +10,6 @@
 
 <details><summary><b>Tools</b></summary>
 <div>IDE: Segger Embedded Studio</div>
+<div>Codegenerate: CubeMX</div>
 <div>Programmer: JLINK</div>
 </details>
