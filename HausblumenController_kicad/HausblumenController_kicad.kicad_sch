@@ -1723,6 +1723,159 @@
 				)
 			)
 		)
+		(symbol "Sensor:DHT11"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at -3.81 6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "DHT11"
+				(at 3.81 6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Sensor:Aosong_DHT11_5.5x12.0_P2.54mm"
+				(at 0 -10.16 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "http://akizukidenshi.com/download/ds/aosong/DHT11.pdf"
+				(at 3.81 6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "3.3V to 5.5V, temperature and humidity module, DHT11"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "digital sensor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Aosong*DHT11*5.5x12.0*P2.54mm*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "DHT11_0_1"
+				(rectangle
+					(start -5.08 5.08)
+					(end 5.08 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "DHT11_1_1"
+				(pin power_in line
+					(at 0 7.62 270)
+					(length 2.54)
+					(name "VDD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name "DATA"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin no_connect line
+					(at -5.08 0 0)
+					(length 2.54) hide
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Sensor_Temperature:DS18B20"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -4147,22 +4300,58 @@
 		)
 	)
 	(junction
-		(at 185.42 48.26)
+		(at 184.15 104.14)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "132b134e-eb4c-4627-a834-a4ccf3628b9a")
+	)
+	(junction
+		(at 175.26 104.14)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2bd69025-4a7e-4b48-a308-d721aeac9632")
+	)
+	(junction
+		(at 182.88 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "444c4172-37cb-49dc-9af5-1024631e906d")
 	)
 	(junction
-		(at 176.53 48.26)
+		(at 173.99 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "55564b6e-c073-4e40-b27a-ee4ff2751665")
 	)
 	(junction
-		(at 176.53 63.5)
+		(at 173.99 45.72)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "60d9e8b4-b2cf-4f78-b6c3-c8abbcf1a013")
+	)
+	(junction
+		(at 175.26 69.85)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7275285d-de71-4351-9957-43f549759422")
+	)
+	(junction
+		(at 175.26 119.38)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9023aaaf-0427-48a3-b186-5ff5f731bd1b")
+	)
+	(junction
+		(at 175.26 85.09)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a55630f2-9d74-43c7-bfe2-519c4f523b09")
+	)
+	(junction
+		(at 184.15 69.85)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b299ae6c-acfa-49ee-94f7-8105d286219f")
 	)
 	(no_connect
 		(at 132.08 97.79)
@@ -4186,17 +4375,37 @@
 	)
 	(wire
 		(pts
-			(xy 176.53 63.5) (xy 176.53 66.04)
+			(xy 175.26 104.14) (xy 175.26 111.76)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "42a709f8-d0c3-4956-8bbe-66ea031e0f05")
+		(uuid "1687ac8b-a5b9-435a-835b-2bb89a4317bb")
 	)
 	(wire
 		(pts
-			(xy 176.53 48.26) (xy 176.53 55.88)
+			(xy 184.15 104.14) (xy 196.85 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2c502dcd-fbc7-4b55-963b-ff08f305834c")
+	)
+	(wire
+		(pts
+			(xy 175.26 85.09) (xy 184.15 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "50f82ac5-e56c-485a-b99c-a31195400ce3")
+	)
+	(wire
+		(pts
+			(xy 173.99 30.48) (xy 173.99 38.1)
 		)
 		(stroke
 			(width 0)
@@ -4206,7 +4415,57 @@
 	)
 	(wire
 		(pts
-			(xy 185.42 48.26) (xy 176.53 48.26)
+			(xy 175.26 119.38) (xy 184.15 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "58dc1265-6263-48b9-b22a-d41278785c5a")
+	)
+	(wire
+		(pts
+			(xy 166.37 90.17) (xy 167.64 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "59c09168-54c1-428e-9d13-d0d1b34fbfac")
+	)
+	(wire
+		(pts
+			(xy 184.15 104.14) (xy 175.26 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "60b6e238-6ab3-4a7d-89ee-b45fc8aabaea")
+	)
+	(wire
+		(pts
+			(xy 184.15 69.85) (xy 196.85 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8527ccbe-aec2-4ec8-96d7-e1e04a167c34")
+	)
+	(wire
+		(pts
+			(xy 175.26 69.85) (xy 175.26 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "87b0c7d5-0849-4549-a320-a9590e275e1e")
+	)
+	(wire
+		(pts
+			(xy 182.88 30.48) (xy 173.99 30.48)
 		)
 		(stroke
 			(width 0)
@@ -4216,7 +4475,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 82.55) (xy 40.64 82.55)
+			(xy 91.44 33.02) (xy 99.06 33.02)
 		)
 		(stroke
 			(width 0)
@@ -4226,7 +4485,17 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 76.2) (xy 176.53 76.2)
+			(xy 184.15 69.85) (xy 175.26 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "97669532-76a6-4af3-9d0a-e5434055d828")
+	)
+	(wire
+		(pts
+			(xy 165.1 55.88) (xy 173.99 55.88)
 		)
 		(stroke
 			(width 0)
@@ -4236,7 +4505,17 @@
 	)
 	(wire
 		(pts
-			(xy 185.42 48.26) (xy 198.12 48.26)
+			(xy 166.37 124.46) (xy 167.64 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a6930d74-da38-4030-81ea-291e9f598a59")
+	)
+	(wire
+		(pts
+			(xy 182.88 30.48) (xy 195.58 30.48)
 		)
 		(stroke
 			(width 0)
@@ -4246,7 +4525,7 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 71.12) (xy 168.91 71.12)
+			(xy 165.1 50.8) (xy 166.37 50.8)
 		)
 		(stroke
 			(width 0)
@@ -4256,7 +4535,7 @@
 	)
 	(wire
 		(pts
-			(xy 176.53 63.5) (xy 185.42 63.5)
+			(xy 173.99 45.72) (xy 182.88 45.72)
 		)
 		(stroke
 			(width 0)
@@ -4264,9 +4543,109 @@
 		)
 		(uuid "c93230bb-3e3a-4e27-b8a7-8ebfadbee9af")
 	)
+	(wire
+		(pts
+			(xy 166.37 95.25) (xy 175.26 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cfd69047-e5e7-4706-a6b8-8a916c5d5c81")
+	)
+	(wire
+		(pts
+			(xy 166.37 129.54) (xy 175.26 129.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d14bf0af-6a94-40b1-b363-d3248b382234")
+	)
+	(text "Light"
+		(exclude_from_sim no)
+		(at 212.09 41.91 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "248cda48-74df-4244-95fd-fa3635718acb")
+	)
+	(text "Show"
+		(exclude_from_sim no)
+		(at 148.59 146.558 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "6dc50f40-dad9-4b81-a66e-97146d444b87")
+	)
+	(text "Light"
+		(exclude_from_sim no)
+		(at 62.992 35.814 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b1425b32-d4d4-470b-8d61-80058d709afa")
+	)
+	(text "Show"
+		(exclude_from_sim no)
+		(at 79.502 177.292 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b193fbff-6a2a-4081-9d03-e8efc5cb80b4")
+	)
+	(text "Steam"
+		(exclude_from_sim no)
+		(at 214.122 116.078 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "ba29bfce-2e73-4a4b-883c-61bce9f15a32")
+	)
+	(text "Control\n"
+		(exclude_from_sim no)
+		(at 114.046 166.624 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "d0df323b-3485-49c5-a528-3c894e7e9e4b")
+	)
+	(text "Water"
+		(exclude_from_sim no)
+		(at 213.868 81.788 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e211f178-48ef-465d-89f0-17edd0e7a6ff")
+	)
+	(text "Steam"
+		(exclude_from_sim no)
+		(at 43.942 118.364 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e76c42e0-dcab-4f5d-8eab-c0f7a1ee0ba7")
+	)
 	(symbol
 		(lib_id "Sensor_Temperature:DS18B20")
-		(at 58.42 67.31 0)
+		(at 88.9 172.72 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4275,7 +4654,7 @@
 		(fields_autoplaced yes)
 		(uuid "0b97bf12-3416-4f59-8801-2cadb3fe183d")
 		(property "Reference" "U2"
-			(at 52.07 66.0399 0)
+			(at 82.55 171.4499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4284,7 +4663,7 @@
 			)
 		)
 		(property "Value" "DS18B20"
-			(at 52.07 68.5799 0)
+			(at 82.55 173.9899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4293,7 +4672,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
-			(at 33.02 73.66 0)
+			(at 63.5 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4302,7 +4681,7 @@
 			)
 		)
 		(property "Datasheet" "http://datasheets.maximintegrated.com/en/ds/DS18B20.pdf"
-			(at 54.61 60.96 0)
+			(at 85.09 166.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4311,7 +4690,7 @@
 			)
 		)
 		(property "Description" "Programmable Resolution 1-Wire Digital Thermometer TO-92"
-			(at 58.42 67.31 0)
+			(at 88.9 172.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4533,16 +4912,15 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 53.34 101.6 0)
+		(at 58.42 40.64 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "1c194962-e6f6-4307-a513-e5a00e95ee2d")
 		(property "Reference" "R3"
-			(at 55.88 100.3299 0)
+			(at 53.594 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4551,7 +4929,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 55.88 102.8699 0)
+			(at 53.594 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4560,7 +4938,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 53.34 101.6 0)
+			(at 58.42 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4569,7 +4947,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 53.34 101.6 0)
+			(at 58.42 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4578,7 +4956,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 53.34 101.6 0)
+			(at 58.42 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4603,7 +4981,7 @@
 	)
 	(symbol
 		(lib_id "Relay:G2RL-2A")
-		(at 195.58 55.88 0)
+		(at 193.04 38.1 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4612,7 +4990,7 @@
 		(fields_autoplaced yes)
 		(uuid "1f92b42a-34c8-4d80-9434-3acba7bc552c")
 		(property "Reference" "K1"
-			(at 212.09 54.6099 0)
+			(at 209.55 36.8299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4621,7 +4999,7 @@
 			)
 		)
 		(property "Value" "G2RL-2A"
-			(at 212.09 57.1499 0)
+			(at 209.55 39.3699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4630,7 +5008,7 @@
 			)
 		)
 		(property "Footprint" "Relay_THT:Relay_DPST_Omron_G2RL-2A"
-			(at 212.09 57.15 0)
+			(at 209.55 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4640,7 +5018,7 @@
 			)
 		)
 		(property "Datasheet" "https://omronfs.omron.com/en_US/ecb/products/pdf/en-g2rl.pdf"
-			(at 195.58 55.88 0)
+			(at 193.04 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4649,7 +5027,7 @@
 			)
 		)
 		(property "Description" "General Purpose Low Profile Relay DPST Through Hole, Omron G2RL series, Normally Open,  8A 250VAC"
-			(at 195.58 55.88 0)
+			(at 193.04 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4685,8 +5063,84 @@
 		)
 	)
 	(symbol
+		(lib_id "Transistor_FET:IRLML2060")
+		(at 172.72 124.46 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2405e589-4ba5-47c9-bf47-ba06453a6044")
+		(property "Reference" "Q3"
+			(at 179.07 123.1899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "IRLML2402"
+			(at 179.07 125.7299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 177.8 126.365 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.infineon.com/dgdl/irlml2060pbf.pdf?fileId=5546d462533600a401535664b7fb25ee"
+			(at 177.8 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "1.2A Id, 60V Vds, 480mOhm Rds, N-Channel HEXFET Power MOSFET, SOT-23"
+			(at 172.72 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "3e298b76-1d09-450b-adbd-59bde4481f53")
+		)
+		(pin "1"
+			(uuid "23f5a142-f7e5-4a98-9158-d673b6acf849")
+		)
+		(pin "3"
+			(uuid "9b0f51ae-2f46-4b48-a26d-82c2209a04ee")
+		)
+		(instances
+			(project "HausblumenController_kicad"
+				(path "/763b7ff5-a573-497b-9e68-3c06692609a4"
+					(reference "Q3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Diode:1N4148")
-		(at 176.53 59.69 270)
+		(at 173.99 41.91 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4694,7 +5148,7 @@
 		(dnp no)
 		(uuid "2576bf5c-7cba-489c-9ff9-e34d1bc84795")
 		(property "Reference" "D1"
-			(at 171.958 58.166 90)
+			(at 169.418 40.386 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4703,7 +5157,7 @@
 			)
 		)
 		(property "Value" "1N4148"
-			(at 167.132 60.452 90)
+			(at 164.592 42.672 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4712,7 +5166,7 @@
 			)
 		)
 		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
-			(at 176.53 59.69 0)
+			(at 173.99 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4721,7 +5175,7 @@
 			)
 		)
 		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf"
-			(at 176.53 59.69 0)
+			(at 173.99 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4730,7 +5184,7 @@
 			)
 		)
 		(property "Description" "100V 0.15A standard switching diode, DO-35"
-			(at 176.53 59.69 0)
+			(at 173.99 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4739,7 +5193,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 176.53 59.69 0)
+			(at 173.99 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4748,7 +5202,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 176.53 59.69 0)
+			(at 173.99 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4773,7 +5227,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 58.42 59.69 0)
+		(at 88.9 165.1 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4782,7 +5236,7 @@
 		(fields_autoplaced yes)
 		(uuid "2658c7ee-ecaf-43f9-970b-6e39e7796a77")
 		(property "Reference" "#PWR03"
-			(at 58.42 63.5 0)
+			(at 88.9 168.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4791,7 +5245,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 58.42 54.61 0)
+			(at 88.9 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4799,7 +5253,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 58.42 59.69 0)
+			(at 88.9 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4808,7 +5262,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 58.42 59.69 0)
+			(at 88.9 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4817,7 +5271,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 58.42 59.69 0)
+			(at 88.9 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4839,7 +5293,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 167.64 73.66 0)
+		(at 165.1 53.34 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4848,7 +5302,7 @@
 		(fields_autoplaced yes)
 		(uuid "30d26814-05ce-458a-ac0c-d5dc1395139b")
 		(property "Reference" "R1"
-			(at 170.18 72.3899 0)
+			(at 167.64 52.0699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4857,7 +5311,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 170.18 74.9299 0)
+			(at 167.64 54.6099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4866,7 +5320,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 167.64 73.66 0)
+			(at 165.1 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4875,7 +5329,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 167.64 73.66 0)
+			(at 165.1 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4884,7 +5338,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 167.64 73.66 0)
+			(at 165.1 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4909,7 +5363,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 173.99 87.63 0)
+		(at 142.24 146.05 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4918,7 +5372,7 @@
 		(fields_autoplaced yes)
 		(uuid "3b1081cd-5325-40ce-aee4-c66e00c7dd5a")
 		(property "Reference" "#PWR011"
-			(at 173.99 91.44 0)
+			(at 142.24 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4927,7 +5381,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 173.99 82.55 0)
+			(at 142.24 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4935,7 +5389,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 173.99 87.63 0)
+			(at 142.24 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4944,7 +5398,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 173.99 87.63 0)
+			(at 142.24 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4953,7 +5407,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 173.99 87.63 0)
+			(at 142.24 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4975,7 +5429,7 @@
 	)
 	(symbol
 		(lib_id "power:+12V")
-		(at 176.53 48.26 0)
+		(at 173.99 30.48 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4984,7 +5438,7 @@
 		(fields_autoplaced yes)
 		(uuid "45c15b64-9f9a-4fef-bbe2-1a668e808be6")
 		(property "Reference" "#PWR013"
-			(at 176.53 52.07 0)
+			(at 173.99 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4993,7 +5447,7 @@
 			)
 		)
 		(property "Value" "+12V"
-			(at 176.53 43.18 0)
+			(at 173.99 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5001,7 +5455,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 176.53 48.26 0)
+			(at 173.99 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5010,7 +5464,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 176.53 48.26 0)
+			(at 173.99 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5019,7 +5473,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+12V\""
-			(at 176.53 48.26 0)
+			(at 173.99 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5108,7 +5562,7 @@
 	)
 	(symbol
 		(lib_id "power:Earth")
-		(at 40.64 82.55 0)
+		(at 99.06 33.02 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5117,7 +5571,7 @@
 		(fields_autoplaced yes)
 		(uuid "4c92e342-8762-4846-a31a-5a830aa4dd36")
 		(property "Reference" "#PWR05"
-			(at 40.64 88.9 0)
+			(at 99.06 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5126,7 +5580,7 @@
 			)
 		)
 		(property "Value" "AGND"
-			(at 40.64 87.63 0)
+			(at 99.06 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5134,7 +5588,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 40.64 82.55 0)
+			(at 99.06 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5143,7 +5597,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 40.64 82.55 0)
+			(at 99.06 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5152,7 +5606,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"Earth\""
-			(at 40.64 82.55 0)
+			(at 99.06 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5174,16 +5628,15 @@
 	)
 	(symbol
 		(lib_id "Device:R_Photo")
-		(at 53.34 95.25 0)
+		(at 58.42 34.29 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "58280929-1f22-4ab9-9fd1-fd6f1c2c8fe6")
 		(property "Reference" "R2"
-			(at 55.88 93.9799 0)
+			(at 60.452 31.242 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5192,7 +5645,7 @@
 			)
 		)
 		(property "Value" "5k-10k"
-			(at 55.88 96.5199 0)
+			(at 60.452 33.528 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5201,7 +5654,7 @@
 			)
 		)
 		(property "Footprint" "OptoDevice:R_LDR_5.1x4.3mm_P3.4mm_Vertical"
-			(at 54.61 101.6 90)
+			(at 59.69 40.64 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5211,7 +5664,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 53.34 96.52 0)
+			(at 58.42 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5220,7 +5673,7 @@
 			)
 		)
 		(property "Description" "Photoresistor"
-			(at 53.34 95.25 0)
+			(at 58.42 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5311,8 +5764,84 @@
 		)
 	)
 	(symbol
+		(lib_id "Sensor:DHT11")
+		(at 53.34 114.3 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6064c861-b205-4fb6-93f6-822bd154e10f")
+		(property "Reference" "U3"
+			(at 46.99 113.0299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "DHT11"
+			(at 46.99 115.5699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Sensor:Aosong_DHT11_5.5x12.0_P2.54mm"
+			(at 53.34 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://akizukidenshi.com/download/ds/aosong/DHT11.pdf"
+			(at 57.15 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "3.3V to 5.5V, temperature and humidity module, DHT11"
+			(at 53.34 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "2f2d9f83-6f4c-4994-8ecf-a06fa6fd3af5")
+		)
+		(pin "3"
+			(uuid "1b263f41-c580-4f56-b605-c2ed71f132e1")
+		)
+		(pin "1"
+			(uuid "39e5f090-01ee-4db8-8a7d-f4ff2f3f3058")
+		)
+		(pin "2"
+			(uuid "4cba5327-c010-486f-ab93-c853a61e4845")
+		)
+		(instances
+			(project ""
+				(path "/763b7ff5-a573-497b-9e68-3c06692609a4"
+					(reference "U3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3V3")
-		(at 53.34 91.44 0)
+		(at 58.42 30.48 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5321,7 +5850,7 @@
 		(fields_autoplaced yes)
 		(uuid "60a99e76-29e9-4d76-9437-f877ffe214e3")
 		(property "Reference" "#PWR02"
-			(at 53.34 95.25 0)
+			(at 58.42 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5330,7 +5859,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 53.34 86.36 0)
+			(at 58.42 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5338,7 +5867,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 53.34 91.44 0)
+			(at 58.42 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5347,7 +5876,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 53.34 91.44 0)
+			(at 58.42 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5356,7 +5885,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 53.34 91.44 0)
+			(at 58.42 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5377,8 +5906,74 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+12V")
+		(at 175.26 104.14 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "70126021-f3fd-4aea-bee6-fb1e3ef8f921")
+		(property "Reference" "#PWR017"
+			(at 175.26 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+12V"
+			(at 175.26 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 175.26 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 175.26 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+12V\""
+			(at 175.26 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "29c78467-7eca-48c6-b78b-4b719d6c51b4")
+		)
+		(instances
+			(project "HausblumenController_kicad"
+				(path "/763b7ff5-a573-497b-9e68-3c06692609a4"
+					(reference "#PWR017")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:Earth")
-		(at 53.34 104.14 0)
+		(at 58.42 43.18 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5387,7 +5982,7 @@
 		(fields_autoplaced yes)
 		(uuid "73f8e8d0-d9b3-4cca-a5c0-207c05c7c71b")
 		(property "Reference" "#PWR06"
-			(at 53.34 110.49 0)
+			(at 58.42 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5396,7 +5991,7 @@
 			)
 		)
 		(property "Value" "AGND"
-			(at 53.34 109.22 0)
+			(at 58.42 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5404,7 +5999,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 53.34 104.14 0)
+			(at 58.42 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5413,7 +6008,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 53.34 104.14 0)
+			(at 58.42 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5422,7 +6017,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"Earth\""
-			(at 53.34 104.14 0)
+			(at 58.42 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5443,8 +6038,74 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3V3")
+		(at 53.34 106.68 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7662348e-1de2-4bf9-918b-7f9ffd838927")
+		(property "Reference" "#PWR014"
+			(at 53.34 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 53.34 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 53.34 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 53.34 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 53.34 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "563cfd42-2edf-45c9-8760-4ff75034fde7")
+		)
+		(instances
+			(project "HausblumenController_kicad"
+				(path "/763b7ff5-a573-497b-9e68-3c06692609a4"
+					(reference "#PWR014")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:Earth")
-		(at 173.99 128.27 0)
+		(at 142.24 186.69 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5453,7 +6114,7 @@
 		(fields_autoplaced yes)
 		(uuid "7cf8b65c-f85a-4088-8393-a26f391c17b2")
 		(property "Reference" "#PWR012"
-			(at 173.99 134.62 0)
+			(at 142.24 193.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5462,7 +6123,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 173.99 133.35 0)
+			(at 142.24 191.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5470,7 +6131,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 173.99 128.27 0)
+			(at 142.24 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5479,7 +6140,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 173.99 128.27 0)
+			(at 142.24 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5488,7 +6149,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"Earth\""
-			(at 173.99 128.27 0)
+			(at 142.24 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5503,6 +6164,259 @@
 			(project "HausblumenController_kicad"
 				(path "/763b7ff5-a573-497b-9e68-3c06692609a4"
 					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Relay:G2RL-2A")
+		(at 194.31 77.47 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8e929f0e-b1f9-4628-9325-f0a5922af426")
+		(property "Reference" "K2"
+			(at 210.82 76.1999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "G2RL-2A"
+			(at 210.82 78.7399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Relay_THT:Relay_DPST_Omron_G2RL-2A"
+			(at 210.82 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://omronfs.omron.com/en_US/ecb/products/pdf/en-g2rl.pdf"
+			(at 194.31 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "General Purpose Low Profile Relay DPST Through Hole, Omron G2RL series, Normally Open,  8A 250VAC"
+			(at 194.31 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "A1"
+			(uuid "d4853d58-f376-4031-b09d-783d0d2361cf")
+		)
+		(pin "24"
+			(uuid "3e2a036b-3120-41a5-acaa-7a277ae9115a")
+		)
+		(pin "A2"
+			(uuid "786811fa-7976-43f3-a69b-3c8cba6c60d6")
+		)
+		(pin "23"
+			(uuid "69837c7f-46a0-460f-8770-936d81a4f895")
+		)
+		(pin "14"
+			(uuid "962247a2-ad33-441a-95db-acdd7719cc58")
+		)
+		(pin "13"
+			(uuid "03673499-563f-40e5-a5d7-f4b196c87352")
+		)
+		(instances
+			(project "HausblumenController_kicad"
+				(path "/763b7ff5-a573-497b-9e68-3c06692609a4"
+					(reference "K2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Diode:1N4148")
+		(at 175.26 115.57 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8ee89a69-a986-44c4-b66c-8bca5e400740")
+		(property "Reference" "D3"
+			(at 170.688 114.046 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1N4148"
+			(at 165.862 116.332 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+			(at 175.26 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf"
+			(at 175.26 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "100V 0.15A standard switching diode, DO-35"
+			(at 175.26 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "D"
+			(at 175.26 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 175.26 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9d40e114-7f61-42fa-8c12-9eb261e3a649")
+		)
+		(pin "2"
+			(uuid "bb527dc9-d18b-48d7-a0a6-768e890edb62")
+		)
+		(instances
+			(project "HausblumenController_kicad"
+				(path "/763b7ff5-a573-497b-9e68-3c06692609a4"
+					(reference "D3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Relay:G2RL-2A")
+		(at 194.31 111.76 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9648891e-4fc0-4879-a23f-2eb7d19f7424")
+		(property "Reference" "K3"
+			(at 210.82 110.4899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "G2RL-2A"
+			(at 210.82 113.0299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Relay_THT:Relay_DPST_Omron_G2RL-2A"
+			(at 210.82 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://omronfs.omron.com/en_US/ecb/products/pdf/en-g2rl.pdf"
+			(at 194.31 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "General Purpose Low Profile Relay DPST Through Hole, Omron G2RL series, Normally Open,  8A 250VAC"
+			(at 194.31 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "A1"
+			(uuid "3f22f6b4-e13f-40e0-ad13-8772a3e348e2")
+		)
+		(pin "24"
+			(uuid "3dcb6d18-891f-4222-8e20-65368cfaa561")
+		)
+		(pin "A2"
+			(uuid "7d9afcb6-3715-4864-8f55-43f0b256ccf1")
+		)
+		(pin "23"
+			(uuid "458a3dc8-1212-4a6e-962c-17feb2298450")
+		)
+		(pin "14"
+			(uuid "f05af45b-2dfc-4887-aa0d-e4eae98ba879")
+		)
+		(pin "13"
+			(uuid "9a1d714d-a7e8-4f1d-8157-5274c1e6bdf0")
+		)
+		(instances
+			(project "HausblumenController_kicad"
+				(path "/763b7ff5-a573-497b-9e68-3c06692609a4"
+					(reference "K3")
 					(unit 1)
 				)
 			)
@@ -5577,16 +6491,15 @@
 	)
 	(symbol
 		(lib_id "Display_Character:WC1602A")
-		(at 173.99 107.95 0)
+		(at 142.24 166.37 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "9d1a0dbd-0ce0-4b7e-abef-9309bc96fbf9")
 		(property "Reference" "DS1"
-			(at 176.1841 85.09 0)
+			(at 146.812 141.478 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5595,7 +6508,7 @@
 			)
 		)
 		(property "Value" "WC1602A"
-			(at 176.1841 87.63 0)
+			(at 144.6881 144.018 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5604,7 +6517,7 @@
 			)
 		)
 		(property "Footprint" "Display:WC1602A"
-			(at 173.99 130.81 0)
+			(at 142.24 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5614,7 +6527,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.wincomlcd.com/pdf/WC1602A-SFYLYHTC06.pdf"
-			(at 191.77 107.95 0)
+			(at 160.02 166.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5623,7 +6536,7 @@
 			)
 		)
 		(property "Description" "LCD 16x2 Alphanumeric , 8 bit parallel bus, 5V VDD"
-			(at 173.99 107.95 0)
+			(at 142.24 166.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5683,6 +6596,208 @@
 			(project ""
 				(path "/763b7ff5-a573-497b-9e68-3c06692609a4"
 					(reference "DS1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 166.37 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9df6767b-6f0a-47cd-8d5a-783473494c50")
+		(property "Reference" "R5"
+			(at 168.91 125.7299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 168.91 128.2699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 166.37 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 166.37 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 166.37 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "bf318eec-d7b0-42cf-bc31-795cc2ddaf06")
+		)
+		(pin "1"
+			(uuid "6fde101e-139b-4de4-9237-dc9f726974b2")
+		)
+		(instances
+			(project "HausblumenController_kicad"
+				(path "/763b7ff5-a573-497b-9e68-3c06692609a4"
+					(reference "R5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:Earth")
+		(at 53.34 121.92 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b234f300-1ca1-4458-9573-9a56c0b9c7a9")
+		(property "Reference" "#PWR015"
+			(at 53.34 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 53.34 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 53.34 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 53.34 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"Earth\""
+			(at 53.34 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fafeed57-bf10-4194-9e36-8b86ee8f8079")
+		)
+		(instances
+			(project "HausblumenController_kicad"
+				(path "/763b7ff5-a573-497b-9e68-3c06692609a4"
+					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+12V")
+		(at 175.26 69.85 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c33a1349-dda5-46b6-97de-c2bc369714c9")
+		(property "Reference" "#PWR016"
+			(at 175.26 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+12V"
+			(at 175.26 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 175.26 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 175.26 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+12V\""
+			(at 175.26 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d8178d81-79cf-42ba-b762-cde37bf6f965")
+		)
+		(instances
+			(project "HausblumenController_kicad"
+				(path "/763b7ff5-a573-497b-9e68-3c06692609a4"
+					(reference "#PWR016")
 					(unit 1)
 				)
 			)
@@ -5757,7 +6872,7 @@
 	)
 	(symbol
 		(lib_id "power:Earth")
-		(at 33.02 82.55 0)
+		(at 91.44 33.02 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5766,7 +6881,7 @@
 		(fields_autoplaced yes)
 		(uuid "c5def3e4-9afb-46f5-966a-6d6d4e8c5a11")
 		(property "Reference" "#PWR04"
-			(at 33.02 88.9 0)
+			(at 91.44 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5775,7 +6890,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 33.02 87.63 0)
+			(at 91.44 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5783,7 +6898,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 33.02 82.55 0)
+			(at 91.44 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5792,7 +6907,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 33.02 82.55 0)
+			(at 91.44 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5801,7 +6916,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"Earth\""
-			(at 33.02 82.55 0)
+			(at 91.44 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5823,16 +6938,15 @@
 	)
 	(symbol
 		(lib_id "Device:RotaryEncoder_Switch_MP")
-		(at 149.86 38.1 0)
+		(at 114.3 172.72 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "c5f52222-7569-444b-b55c-58ea77f8e283")
 		(property "Reference" "SW1"
-			(at 149.86 27.94 0)
+			(at 114.3 161.036 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5840,7 +6954,7 @@
 			)
 		)
 		(property "Value" "RotaryEncoder_Switch_MP"
-			(at 149.86 30.48 0)
+			(at 114.3 164.084 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5848,7 +6962,7 @@
 			)
 		)
 		(property "Footprint" "Rotary_Encoder:RotaryEncoder_Alps_EC12E-Switch_Vertical_H20mm"
-			(at 146.05 34.036 0)
+			(at 110.49 168.656 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5857,7 +6971,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 149.86 50.8 0)
+			(at 114.3 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5866,7 +6980,7 @@
 			)
 		)
 		(property "Description" "Rotary encoder, dual channel, incremental quadrate outputs, with switch and MP Pin"
-			(at 149.86 53.34 0)
+			(at 114.3 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5903,16 +7017,16 @@
 	)
 	(symbol
 		(lib_id "Transistor_FET:IRLML2060")
-		(at 173.99 71.12 0)
+		(at 172.72 90.17 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "ecf61932-62ae-4488-a33e-afa17c106cb0")
-		(property "Reference" "Q1"
-			(at 180.34 69.8499 0)
+		(uuid "c6b26ae0-8714-41d8-a46b-e44d2a66f23e")
+		(property "Reference" "Q2"
+			(at 179.07 88.8999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5921,7 +7035,7 @@
 			)
 		)
 		(property "Value" "IRLML2402"
-			(at 180.34 72.3899 0)
+			(at 179.07 91.4399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5930,7 +7044,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 179.07 73.025 0)
+			(at 177.8 92.075 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5941,7 +7055,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.infineon.com/dgdl/irlml2060pbf.pdf?fileId=5546d462533600a401535664b7fb25ee"
-			(at 179.07 74.93 0)
+			(at 177.8 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5951,7 +7065,240 @@
 			)
 		)
 		(property "Description" "1.2A Id, 60V Vds, 480mOhm Rds, N-Channel HEXFET Power MOSFET, SOT-23"
-			(at 173.99 71.12 0)
+			(at 172.72 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "c637b892-d778-4578-965d-7aad3a7f573a")
+		)
+		(pin "1"
+			(uuid "fe7133a8-ca90-47df-a153-9a37e2c827c7")
+		)
+		(pin "3"
+			(uuid "14f8b0bb-bb3c-47b0-9ea4-bcf3f4845349")
+		)
+		(instances
+			(project "HausblumenController_kicad"
+				(path "/763b7ff5-a573-497b-9e68-3c06692609a4"
+					(reference "Q2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 166.37 92.71 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d470678d-482a-4d60-bf16-7a8c6bd7333e")
+		(property "Reference" "R4"
+			(at 168.91 91.4399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 168.91 93.9799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 166.37 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 166.37 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 166.37 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "9c92af35-f237-47ef-980a-57895fd49671")
+		)
+		(pin "1"
+			(uuid "3e727cfd-58cc-4e3a-ba85-8d538377aa4d")
+		)
+		(instances
+			(project "HausblumenController_kicad"
+				(path "/763b7ff5-a573-497b-9e68-3c06692609a4"
+					(reference "R4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Diode:1N4148")
+		(at 175.26 81.28 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "da0646e3-d55e-4aff-9b99-8d70fb9d12f8")
+		(property "Reference" "D2"
+			(at 170.688 79.756 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1N4148"
+			(at 165.862 82.042 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+			(at 175.26 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf"
+			(at 175.26 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "100V 0.15A standard switching diode, DO-35"
+			(at 175.26 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "D"
+			(at 175.26 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 175.26 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ea093dba-86bd-4aca-80c7-51419f0709ab")
+		)
+		(pin "2"
+			(uuid "89795283-4e77-4699-9bd4-dade2d22f74e")
+		)
+		(instances
+			(project "HausblumenController_kicad"
+				(path "/763b7ff5-a573-497b-9e68-3c06692609a4"
+					(reference "D2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_FET:IRLML2060")
+		(at 171.45 50.8 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ecf61932-62ae-4488-a33e-afa17c106cb0")
+		(property "Reference" "Q1"
+			(at 177.8 49.5299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "IRLML2402"
+			(at 177.8 52.0699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 176.53 52.705 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.infineon.com/dgdl/irlml2060pbf.pdf?fileId=5546d462533600a401535664b7fb25ee"
+			(at 176.53 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "1.2A Id, 60V Vds, 480mOhm Rds, N-Channel HEXFET Power MOSFET, SOT-23"
+			(at 171.45 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5979,7 +7326,7 @@
 	)
 	(symbol
 		(lib_id "power:Earth")
-		(at 58.42 74.93 0)
+		(at 88.9 180.34 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5988,7 +7335,7 @@
 		(fields_autoplaced yes)
 		(uuid "f3a62256-22e5-426d-b270-479f514277f8")
 		(property "Reference" "#PWR07"
-			(at 58.42 81.28 0)
+			(at 88.9 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5997,7 +7344,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 58.42 80.01 0)
+			(at 88.9 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6005,7 +7352,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 58.42 74.93 0)
+			(at 88.9 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6014,7 +7361,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 58.42 74.93 0)
+			(at 88.9 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6023,7 +7370,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"Earth\""
-			(at 58.42 74.93 0)
+			(at 88.9 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
