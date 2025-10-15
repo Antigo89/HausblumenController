@@ -7,7 +7,7 @@
 </div>	
 
 Устройство поддержания влажности и освещённости для домашних цветов.
-
+<div>Status: Производится начертание схемы и предварительная инициализация MCU.</div>
 <details><summary><b>Tools</b></summary>
 <div>IDE: Segger Embedded Studio</div>
 <div>Codegenerate: CubeMX</div>
