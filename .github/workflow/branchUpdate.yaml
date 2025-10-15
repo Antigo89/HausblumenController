@@ -1,0 +1,25 @@
+name: branchUpdate
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  update_feature_branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Важно для получения всей истории коммитов
+
+      - name: Merge main into development
+        run: |
+          git checkout development
+          git rebase master
+          # Опционально: git push origin development
+
+      - name: Push changes
+        run: git push origin development
