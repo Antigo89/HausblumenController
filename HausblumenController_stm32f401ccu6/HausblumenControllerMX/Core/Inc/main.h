@@ -76,6 +76,10 @@ void Error_Handler(void);
 #define LCD_DE_GPIO_Port GPIOB
 #define LIGHT_Pin GPIO_PIN_12
 #define LIGHT_GPIO_Port GPIOB
+#define STEAM_Pin GPIO_PIN_4
+#define STEAM_GPIO_Port GPIOB
+#define WATER_Pin GPIO_PIN_5
+#define WATER_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

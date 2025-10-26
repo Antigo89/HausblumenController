@@ -383,7 +383,8 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOA, LCD_D4_Pin|LCD_D5_Pin|LCD_D6_Pin|LCD_D7_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LCD_RS_Pin|LCD_DE_Pin|LIGHT_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, LCD_RS_Pin|LCD_DE_Pin|LIGHT_Pin|STEAM_Pin
+                          |WATER_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : LCD_LED_Pin */
   GPIO_InitStruct.Pin = LCD_LED_Pin;
@@ -405,8 +406,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(Photo_Input_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LCD_RS_Pin LCD_DE_Pin LIGHT_Pin */
-  GPIO_InitStruct.Pin = LCD_RS_Pin|LCD_DE_Pin|LIGHT_Pin;
+  /*Configure GPIO pins : LCD_RS_Pin LCD_DE_Pin LIGHT_Pin STEAM_Pin
+                           WATER_Pin */
+  GPIO_InitStruct.Pin = LCD_RS_Pin|LCD_DE_Pin|LIGHT_Pin|STEAM_Pin
+                          |WATER_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
