@@ -106,8 +106,14 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+    //Led display an 3sec
+    //HAL_GPIO_WritePin(LCD_LED_GPIO_Port, LCD_LED_Pin, GPIO_PIN_SET);
+    GPIOC->BSRR |= LCD_LED_Pin;
+    HAL_Delay(3000);
+    GPIOC->BSRR |= (LCD_LED_Pin<<16);
   while (1)
   {
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
