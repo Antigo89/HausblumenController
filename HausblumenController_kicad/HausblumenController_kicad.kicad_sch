@@ -5284,6 +5284,12 @@
 		(uuid "b963d73f-3933-4e91-ba8b-52bb77e6372e")
 	)
 	(junction
+		(at 109.22 125.73)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bcc248e5-a414-4199-a8e6-58ac2b92f72f")
+	)
+	(junction
 		(at 93.98 41.91)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5318,12 +5324,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d70948cb-7777-4536-b6e7-ac6e34b9285e")
-	)
-	(junction
-		(at 109.22 121.92)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f3aa1a3c-1ae2-4e8b-999a-40df93ea66f0")
 	)
 	(junction
 		(at 68.58 52.07)
@@ -6203,16 +6203,6 @@
 	)
 	(wire
 		(pts
-			(xy 118.11 125.73) (xy 118.11 121.92)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "74b77ab7-e86c-4d71-9c51-69d4d1d0bf42")
-	)
-	(wire
-		(pts
 			(xy 97.79 93.98) (xy 95.25 93.98)
 		)
 		(stroke
@@ -6280,6 +6270,16 @@
 			(type default)
 		)
 		(uuid "7d3a26ca-4a1e-46d0-a63d-5cbed46b66f4")
+	)
+	(wire
+		(pts
+			(xy 109.22 125.73) (xy 109.22 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7e0246df-f8e3-46e2-91a5-e2fea16e3674")
 	)
 	(wire
 		(pts
@@ -6633,7 +6633,7 @@
 	)
 	(wire
 		(pts
-			(xy 118.11 121.92) (xy 109.22 121.92)
+			(xy 118.11 125.73) (xy 109.22 125.73)
 		)
 		(stroke
 			(width 0)
@@ -7070,6 +7070,54 @@
 			(type default)
 		)
 		(uuid "ff20479a-d798-48e9-9468-febf7eba88d1")
+	)
+	(wire
+		(pts
+			(xy 109.22 125.73) (xy 109.22 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ff9514be-1eed-4cd5-bb17-00919149ef65")
+	)
+	(text_box "1V25"
+		(exclude_from_sim no)
+		(at 87.63 171.45 0)
+		(size 6.35 3.81)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "0c837d57-ecf4-4539-afe5-9afe1898336a")
+	)
+	(text_box "1V23"
+		(exclude_from_sim no)
+		(at 100.33 127 0)
+		(size 6.35 3.81)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "94e78e46-53d2-4b98-b4aa-59df5a470212")
 	)
 	(text "+\n"
 		(exclude_from_sim no)
@@ -8866,75 +8914,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 109.22 124.46 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3acd0afd-9dc4-42d0-8bc9-be99902b573b")
-		(property "Reference" "R16"
-			(at 110.236 123.444 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "330"
-			(at 110.236 125.476 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 109.22 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 109.22 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 109.22 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "d1140906-970d-4ecc-b151-b2ce975f7aca")
-		)
-		(pin "1"
-			(uuid "6531e954-804a-4c16-912f-bdb9d8d5d148")
-		)
-		(instances
-			(project "HausblumenController_kicad"
-				(path "/763b7ff5-a573-497b-9e68-3c06692609a4"
-					(reference "R16")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3V3")
 		(at 201.93 102.87 0)
 		(unit 1)
@@ -9283,7 +9262,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "3,8k"
 			(at 96.266 173.736 0)
 			(effects
 				(font
@@ -9826,7 +9805,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "7,6k"
 			(at 110.236 135.636 0)
 			(effects
 				(font
@@ -9945,7 +9924,7 @@
 	)
 	(symbol
 		(lib_id "power:Earth")
-		(at 109.22 121.92 180)
+		(at 109.22 124.46 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9954,7 +9933,7 @@
 		(fields_autoplaced yes)
 		(uuid "7bb94028-6841-4ed5-b5b1-aacc1077ea7b")
 		(property "Reference" "#PWR014"
-			(at 109.22 115.57 0)
+			(at 109.22 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9963,7 +9942,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 109.22 116.84 0)
+			(at 109.22 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9971,7 +9950,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 109.22 121.92 0)
+			(at 109.22 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9980,7 +9959,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 109.22 121.92 0)
+			(at 109.22 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9989,7 +9968,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"Earth\""
-			(at 109.22 121.92 0)
+			(at 109.22 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10160,7 +10139,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "6,2k"
 			(at 96.266 168.656 0)
 			(effects
 				(font
@@ -11714,7 +11693,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "2,4k"
 			(at 110.236 130.556 0)
 			(effects
 				(font
