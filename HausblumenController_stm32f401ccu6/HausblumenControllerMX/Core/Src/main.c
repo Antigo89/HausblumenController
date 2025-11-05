@@ -60,7 +60,7 @@ static void MX_TIM3_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
-
+void PreferencesSave(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -101,22 +101,52 @@ int main(void)
   MX_ADC1_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
+  //TODO: WH1602_Init();
+  //TODO: "Hallo" -> WH1602
+  //TODO: Preferences load
+  //TODO: BME280_Init()
+  //TODO: get DataTime
 
+
+  
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-    //Led display an 3sec
-    //HAL_GPIO_WritePin(LCD_LED_GPIO_Port, LCD_LED_Pin, GPIO_PIN_SET);
+    //TODO: Encoder value reset
+    //LedOn display 3sec
     GPIOC->BSRR |= LCD_LED_Pin;
     HAL_Delay(3000);
     GPIOC->BSRR |= (LCD_LED_Pin<<16);
   while (1)
   {
+    //TODO: use HAL_GetTick() for ADC
+    //TODO: get ADC value
+    //TODO: on/off LIGHT_Pin
+
+    //TODO: use HAL_GetTick() for Humidity and Termo
+    //TODO: get value BME280
+    //TODO: on/off STEAM_Pin
+    //TODO: on/off WATER_Pin
+    //test Mosfet 5V and 12V
+    /*
+    GPIOB->BSRR |= LIGHT_Pin;
+    HAL_Delay(3000);
+    GPIOB->BSRR |= (LIGHT_Pin<<16);
+    HAL_Delay(3000);
+    */
 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    //TODO: use HAL_GetTick() for Menu
+    
+    //TODO: menu Handler
+      //TODO: Encoder, set CursorPosition and LCD_LED_Pin on/off
+      //TODO: Key, set CursorLevel
+    //TODO: Update WH1602
+
+
   }
   /* USER CODE END 3 */
 }
@@ -424,6 +454,9 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void PreferencesSave(void){
+  //TODO: function void PreferencesSave();
+}
 
 /* USER CODE END 4 */
 
