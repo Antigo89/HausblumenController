@@ -60,6 +60,7 @@ static void MX_TIM3_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
+void SendByteLCD(char ByteToSend, int IsData);
 void PreferencesSave(void);
 /* USER CODE END PFP */
 
@@ -102,6 +103,17 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   //TODO: WH1602_Init();
+  GPIOA->BSRR |= 0x0F00;
+  GPIOA->ODR |= 0x02;
+  GPIOB->BSRR |= (LCD_DE_Pin<<16);
+  HAL_Delay(220);
+  GPIOB->BSRR |= LCD_DE_Pin;
+  HAL_Delay(220);
+  GPIOB->BSRR |= (LCD_DE_Pin<<16);
+  HAL_Delay(220);
+  SendByteLCD(0x28, 0);
+  SendByteLCD(0x0E, 0);
+  SendByteLCD(0x06, 0);
   //TODO: "Hallo" -> WH1602
   //TODO: Preferences load
   //TODO: BME280_Init()
@@ -118,6 +130,8 @@ int main(void)
     GPIOC->BSRR |= LCD_LED_Pin;
     HAL_Delay(3000);
     GPIOC->BSRR |= (LCD_LED_Pin<<16);
+    //Test LCD
+    SendByteLCD('A', 1);
   while (1)
   {
     //TODO: use HAL_GetTick() for ADC
@@ -456,8 +470,53 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void PreferencesSave(void){
   //TODO: function void PreferencesSave();
-}
 
+}
+//Display functions
+void SendByteLCD(char ByteToSend, int IsData){
+  //LCM_OUT &= (~LCM_PIN_MASK);
+  GPIOA->BSRR |= 0x0F00;
+  //LCM_OUT |= (ByteToSend & 0xF0);
+  GPIOA->ODR |= ((ByteToSend&0xF0)>>4);
+
+  if(IsData == 1){
+    //LCM_OUT |= LCM_PIN_RS;
+    GPIOB->BSRR |= LCD_RS_Pin;
+  }else{
+    //LCM_OUT &= ~LCM_PIN_RS;
+    GPIOB->BSRR |= (LCD_RS_Pin<<16);
+  }
+  //PulseLCD();
+  if(GPIOB->ODR&LCD_DE_Pin){
+    GPIOB->BSRR |= (LCD_DE_Pin<<16);
+    HAL_Delay(220);
+  }
+  GPIOB->BSRR |= LCD_DE_Pin;
+  HAL_Delay(220);
+  GPIOB->BSRR |= (LCD_DE_Pin<<16);
+  HAL_Delay(220);
+
+  GPIOA->BSRR |= 0x0F00;
+  GPIOA->ODR |= ((ByteToSend&0xF0)>>4);
+ 
+  if(IsData == 1){
+    //LCM_OUT |= LCM_PIN_RS;
+    GPIOB->BSRR |= LCD_RS_Pin;
+  }else{
+    //LCM_OUT &= ~LCM_PIN_RS;
+    GPIOB->BSRR |= (LCD_RS_Pin<<16);
+  }
+  
+  //PulseLCD();
+  if(GPIOB->ODR&LCD_DE_Pin){
+    GPIOB->BSRR |= (LCD_DE_Pin<<16);
+    HAL_Delay(220);
+  }
+  GPIOB->BSRR |= LCD_DE_Pin;
+  HAL_Delay(220);
+  GPIOB->BSRR |= (LCD_DE_Pin<<16);
+  HAL_Delay(220);
+}
 /* USER CODE END 4 */
 
 /**
