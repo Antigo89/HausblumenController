@@ -61,6 +61,10 @@ static void MX_ADC1_Init(void);
 static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
 void SendByteLCD(char ByteToSend, int IsData);
+void LCD_Init(void);
+void Clear_LCD(void);
+void SetCursorLCD(uint8_t row, uint8_t col);
+void SendStringLCD(char* stringLCD);
 void PreferencesSave(void);
 /* USER CODE END PFP */
 
@@ -102,19 +106,14 @@ int main(void)
   MX_ADC1_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  //TODO: WH1602_Init();
-  GPIOA->BSRR |= 0x0F00;
-  GPIOA->ODR |= 0x02;
-  GPIOB->BSRR |= (LCD_DE_Pin<<16);
-  HAL_Delay(220);
-  GPIOB->BSRR |= LCD_DE_Pin;
-  HAL_Delay(220);
-  GPIOB->BSRR |= (LCD_DE_Pin<<16);
-  HAL_Delay(220);
-  SendByteLCD(0x28, 0);
-  SendByteLCD(0x0E, 0);
-  SendByteLCD(0x06, 0);
-  //TODO: "Hallo" -> WH1602
+  LCD_Init();
+  Clear_LCD();
+  //LedOn display
+  GPIOC->BSRR |= LCD_LED_Pin;
+  SetCursorLCD(0, 5);
+  SendStringLCD("Hallo");
+  HAL_Delay(3000);
+  
   //TODO: Preferences load
   //TODO: BME280_Init()
   //TODO: get DataTime
@@ -126,17 +125,15 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
     //TODO: Encoder value reset
-    //LedOn display 3sec
-    GPIOC->BSRR |= LCD_LED_Pin;
-    HAL_Delay(3000);
-    GPIOC->BSRR |= (LCD_LED_Pin<<16);
-    //Test LCD
-    SendByteLCD('A', 1);
+
+    
+
   while (1)
   {
     //TODO: use HAL_GetTick() for ADC
     //TODO: get ADC value
     //TODO: on/off LIGHT_Pin
+
 
     //TODO: use HAL_GetTick() for Humidity and Termo
     //TODO: get value BME280
@@ -157,6 +154,7 @@ int main(void)
     
     //TODO: menu Handler
       //TODO: Encoder, set CursorPosition and LCD_LED_Pin on/off
+    GPIOC->BSRR |= (LCD_LED_Pin<<16);
       //TODO: Key, set CursorLevel
     //TODO: Update WH1602
 
@@ -472,21 +470,15 @@ void PreferencesSave(void){
   //TODO: function void PreferencesSave();
 
 }
-//Display functions
+//Display functions: sendByte
 void SendByteLCD(char ByteToSend, int IsData){
-  //LCM_OUT &= (~LCM_PIN_MASK);
-  GPIOA->BSRR |= 0x0F00;
-  //LCM_OUT |= (ByteToSend & 0xF0);
-  GPIOA->ODR |= ((ByteToSend&0xF0)>>4);
-
+  GPIOA->BSRR |= (0x0F<<16);
+  GPIOA->ODR |= ((ByteToSend>>4)&0x0F);
   if(IsData == 1){
-    //LCM_OUT |= LCM_PIN_RS;
     GPIOB->BSRR |= LCD_RS_Pin;
   }else{
-    //LCM_OUT &= ~LCM_PIN_RS;
     GPIOB->BSRR |= (LCD_RS_Pin<<16);
   }
-  //PulseLCD();
   if(GPIOB->ODR&LCD_DE_Pin){
     GPIOB->BSRR |= (LCD_DE_Pin<<16);
     HAL_Delay(220);
@@ -496,18 +488,14 @@ void SendByteLCD(char ByteToSend, int IsData){
   GPIOB->BSRR |= (LCD_DE_Pin<<16);
   HAL_Delay(220);
 
-  GPIOA->BSRR |= 0x0F00;
-  GPIOA->ODR |= ((ByteToSend&0xF0)>>4);
+  GPIOA->BSRR |= (0x0F<<16);
+  GPIOA->ODR |= (ByteToSend&0x0F);
  
   if(IsData == 1){
-    //LCM_OUT |= LCM_PIN_RS;
     GPIOB->BSRR |= LCD_RS_Pin;
   }else{
-    //LCM_OUT &= ~LCM_PIN_RS;
     GPIOB->BSRR |= (LCD_RS_Pin<<16);
   }
-  
-  //PulseLCD();
   if(GPIOB->ODR&LCD_DE_Pin){
     GPIOB->BSRR |= (LCD_DE_Pin<<16);
     HAL_Delay(220);
@@ -516,6 +504,43 @@ void SendByteLCD(char ByteToSend, int IsData){
   HAL_Delay(220);
   GPIOB->BSRR |= (LCD_DE_Pin<<16);
   HAL_Delay(220);
+}
+//Display functions: LCD_Init
+void LCD_Init(void){
+  GPIOA->BSRR |= (0x0F<<16);
+  GPIOA->ODR |= 0x02;
+  GPIOB->BSRR |= (LCD_DE_Pin<<16);
+  HAL_Delay(220);
+  GPIOB->BSRR |= LCD_DE_Pin;
+  HAL_Delay(220);
+  GPIOB->BSRR |= (LCD_DE_Pin<<16);
+  HAL_Delay(220);
+  SendByteLCD(0x28, 0);
+  SendByteLCD(0x0E, 0);
+  SendByteLCD(0x06, 0);
+
+}
+//Display functions: Clear
+void Clear_LCD(void){
+  SendByteLCD(0x01, 0);
+  SendByteLCD(0x02, 0);
+}
+//Display functions: SetCursor
+void SetCursorLCD(uint8_t row, uint8_t col){
+  uint8_t address = 0x80;
+  if (row != 0) address |= 0x40;
+  address |= col;
+  SendByteLCD(address, 0);
+}
+//Display functions: sendString
+void SendStringLCD(char* stringLCD){
+  char *c;
+  c = stringLCD;
+  while ((c != 0) && (*c != 0))
+  {
+      SendByteLCD(*c, 1);
+      c++;
+  }
 }
 /* USER CODE END 4 */
 
