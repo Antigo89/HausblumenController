@@ -54,6 +54,7 @@
       path="CMSIS_5"
       recurse="Yes" />
     <folder Name="Core">
+      <file file_name="HausblumenControllerMX/Core/Inc/display_menu.h" />
       <file file_name="HausblumenControllerMX/Core/Src/main.c" />
       <file file_name="HausblumenControllerMX/Core/Src/stm32f4xx_hal_msp.c" />
       <file file_name="HausblumenControllerMX/Core/Src/stm32f4xx_it.c" />

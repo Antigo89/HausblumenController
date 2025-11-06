@@ -22,7 +22,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdlib.h>
+#include "display_menu.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -32,6 +33,11 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define LCD_DE_TIME 10
+
+#define LCD_LED_TIME 3000
+
+#define MENU_PERIOD 500
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -49,7 +55,12 @@ RTC_HandleTypeDef hrtc;
 TIM_HandleTypeDef htim3;
 
 /* USER CODE BEGIN PV */
+//Timers
+uint32_t timerLCDLED = 0;
+uint32_t timerMenu = 0;
 
+//Menu
+uint8_t oldPositionMenu = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -106,13 +117,14 @@ int main(void)
   MX_ADC1_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
+  HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
   LCD_Init();
   Clear_LCD();
   //LedOn display
   GPIOC->BSRR |= LCD_LED_Pin;
+  timerLCDLED = HAL_GetTick();
   SetCursorLCD(0, 5);
   SendStringLCD("Hallo");
-  HAL_Delay(3000);
   
   //TODO: Preferences load
   //TODO: BME280_Init()
@@ -150,13 +162,58 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    //TODO: use HAL_GetTick() for Menu
-    
-    //TODO: menu Handler
+    //LCD_LED off
+    if((GPIOC->ODR & LCD_LED_Pin)&&(HAL_GetTick() - timerLCDLED > LCD_LED_TIME)){
+      GPIOC->BSRR |= (LCD_LED_Pin<<16);
+      //Clear_LCD();
+    }
+    //Menu
+    if(HAL_GetTick() - timerMenu > MENU_PERIOD){
+      //TODO: menu Handler
       //TODO: Encoder, set CursorPosition and LCD_LED_Pin on/off
-    GPIOC->BSRR |= (LCD_LED_Pin<<16);
+      //uint8_t newPosition = TIM3->CNT;
+      if(TIM3->CNT != 100){
+        uint8_t newPosition = TIM3->CNT;
+        if(newPosition>100){
+          oldPositionMenu += (newPosition-100);
+        }else{
+          newPosition = 100 - newPosition;
+          if(newPosition < oldPositionMenu){
+            oldPositionMenu -= (100 - newPosition);
+          }else{
+            oldPositionMenu = 0;
+          }
+        }
+        //Update new position display WH1602
+        Clear_LCD();
+        SetCursorLCD(0, 0);
+        SendStringLCD(punct1);
+        SetCursorLCD(1, 0);
+        SendStringLCD(punct2);
+        //LedOn display
+        GPIOC->BSRR |= LCD_LED_Pin;
+        timerLCDLED = HAL_GetTick();
+
+        //Update new value display WH1602
+        char positionStr[4] = {0,0,0,0};
+        itoa(oldPositionMenu, positionStr, 10);
+        SetCursorLCD(0, 10);
+        SendStringLCD(positionStr);
+
+        //end encoder proc
+        
+        TIM3->CNT = 100;
+      }
       //TODO: Key, set CursorLevel
-    //TODO: Update WH1602
+      
+      timerMenu = HAL_GetTick();
+    }
+    //LCD_LED off
+    if((GPIOC->ODR & LCD_LED_Pin)&&(HAL_GetTick() - timerLCDLED > LCD_LED_TIME)){
+      GPIOC->BSRR |= (LCD_LED_Pin<<16);
+      //Clear_LCD();
+    }
+      
 
 
   }
@@ -379,32 +436,41 @@ static void MX_TIM3_Init(void)
 
   /* USER CODE END TIM3_Init 1 */
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 0;
+  htim3.Init.Prescaler = 1;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 65535;
+  htim3.Init.Period = 256;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
-  sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+  sConfig.IC1Polarity = TIM_ICPOLARITY_FALLING;
   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
-  sConfig.IC1Filter = 0;
-  sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
+  sConfig.IC1Filter = 10;
+  sConfig.IC2Polarity = TIM_ICPOLARITY_FALLING;
   sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
   sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
-  sConfig.IC2Filter = 0;
+  sConfig.IC2Filter = 10;
   if (HAL_TIM_Encoder_Init(&htim3, &sConfig) != HAL_OK)
   {
     Error_Handler();
   }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_ENABLE;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
   if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
   {
     Error_Handler();
   }
   /* USER CODE BEGIN TIM3_Init 2 */
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  __HAL_RCC_TIM3_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  GPIO_InitStruct.Pin = GPIO_PIN_6 |GPIO_PIN_7;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  GPIO_InitStruct.Alternate = GPIO_AF2_TIM3;
 
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
   /* USER CODE END TIM3_Init 2 */
 
 }
@@ -481,12 +547,12 @@ void SendByteLCD(char ByteToSend, int IsData){
   }
   if(GPIOB->ODR&LCD_DE_Pin){
     GPIOB->BSRR |= (LCD_DE_Pin<<16);
-    HAL_Delay(220);
+    HAL_Delay(LCD_DE_TIME);
   }
   GPIOB->BSRR |= LCD_DE_Pin;
-  HAL_Delay(220);
+  HAL_Delay(LCD_DE_TIME);
   GPIOB->BSRR |= (LCD_DE_Pin<<16);
-  HAL_Delay(220);
+  HAL_Delay(LCD_DE_TIME);
 
   GPIOA->BSRR |= (0x0F<<16);
   GPIOA->ODR |= (ByteToSend&0x0F);
@@ -498,23 +564,23 @@ void SendByteLCD(char ByteToSend, int IsData){
   }
   if(GPIOB->ODR&LCD_DE_Pin){
     GPIOB->BSRR |= (LCD_DE_Pin<<16);
-    HAL_Delay(220);
+    HAL_Delay(LCD_DE_TIME);
   }
   GPIOB->BSRR |= LCD_DE_Pin;
-  HAL_Delay(220);
+  HAL_Delay(LCD_DE_TIME);
   GPIOB->BSRR |= (LCD_DE_Pin<<16);
-  HAL_Delay(220);
+  HAL_Delay(LCD_DE_TIME);
 }
 //Display functions: LCD_Init
 void LCD_Init(void){
   GPIOA->BSRR |= (0x0F<<16);
   GPIOA->ODR |= 0x02;
   GPIOB->BSRR |= (LCD_DE_Pin<<16);
-  HAL_Delay(220);
+  HAL_Delay(LCD_DE_TIME);
   GPIOB->BSRR |= LCD_DE_Pin;
-  HAL_Delay(220);
+  HAL_Delay(LCD_DE_TIME);
   GPIOB->BSRR |= (LCD_DE_Pin<<16);
-  HAL_Delay(220);
+  HAL_Delay(LCD_DE_TIME);
   SendByteLCD(0x28, 0);
   SendByteLCD(0x0E, 0);
   SendByteLCD(0x06, 0);
