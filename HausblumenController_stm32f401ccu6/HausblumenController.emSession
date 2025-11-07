@@ -48,7 +48,7 @@
  </TraceWindow>
  <Watch1>
   <Watches active="1" update="Twice a Second">
-   <Watchpoint expression="newPosition" name="newPosition" radix="10" linenumber="182" filename="HausblumenControllerMX/Core/Src/main.c"/>
+   <Watchpoint expression="newPosition" name="newPosition" radix="10" linenumber="184" filename="HausblumenControllerMX/Core/Src/main.c"/>
   </Watches>
  </Watch1>
  <Watch2>
@@ -61,7 +61,7 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="91" useTextEdit="1" folds0="227,279,329,363,617" path="HausblumenControllerMX/Core/Src/main.c" left="0" selected="1" top="68" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="23" y="94" useTextEdit="1" folds0="227,279,329,363,616" path="HausblumenControllerMX/Core/Src/main.c" left="0" selected="1" top="77" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="24" y="62" useTextEdit="1" path="HausblumenControllerMX/Core/Inc/main.h" left="0" top="21" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="389" useTextEdit="1" path="HausblumenControllerMX/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" left="0" top="366" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="11" y="24" useTextEdit="1" path="HausblumenControllerMX/Core/Inc/display_menu.h" left="0" top="0" codecName="Default"/>

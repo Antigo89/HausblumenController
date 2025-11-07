@@ -33,7 +33,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define LCD_DE_TIME 10
+#define LCD_DE_TIME 1
 
 #define LCD_LED_TIME 3000
 
@@ -174,12 +174,14 @@ int main(void)
       //uint8_t newPosition = TIM3->CNT;
       if(TIM3->CNT != 100){
         uint8_t newPosition = TIM3->CNT;
+        TIM3->CNT = 100;
         if(newPosition>100){
-          oldPositionMenu += (newPosition-100);
+          newPosition = (newPosition-100);
+          oldPositionMenu += newPosition;
         }else{
-          newPosition = 100 - newPosition;
+          newPosition = (100 - newPosition);
           if(newPosition < oldPositionMenu){
-            oldPositionMenu -= (100 - newPosition);
+            oldPositionMenu -= newPosition;
           }else{
             oldPositionMenu = 0;
           }
@@ -201,8 +203,6 @@ int main(void)
         SendStringLCD(positionStr);
 
         //end encoder proc
-        
-        TIM3->CNT = 100;
       }
       //TODO: Key, set CursorLevel
       
@@ -545,10 +545,10 @@ void SendByteLCD(char ByteToSend, int IsData){
   }else{
     GPIOB->BSRR |= (LCD_RS_Pin<<16);
   }
-  if(GPIOB->ODR&LCD_DE_Pin){
-    GPIOB->BSRR |= (LCD_DE_Pin<<16);
-    HAL_Delay(LCD_DE_TIME);
-  }
+  //if(GPIOB->ODR&LCD_DE_Pin){
+  //  GPIOB->BSRR |= (LCD_DE_Pin<<16);
+  //  HAL_Delay(LCD_DE_TIME);
+  //}
   GPIOB->BSRR |= LCD_DE_Pin;
   HAL_Delay(LCD_DE_TIME);
   GPIOB->BSRR |= (LCD_DE_Pin<<16);
@@ -562,10 +562,10 @@ void SendByteLCD(char ByteToSend, int IsData){
   }else{
     GPIOB->BSRR |= (LCD_RS_Pin<<16);
   }
-  if(GPIOB->ODR&LCD_DE_Pin){
-    GPIOB->BSRR |= (LCD_DE_Pin<<16);
-    HAL_Delay(LCD_DE_TIME);
-  }
+  //if(GPIOB->ODR&LCD_DE_Pin){
+  //  GPIOB->BSRR |= (LCD_DE_Pin<<16);
+  //  HAL_Delay(LCD_DE_TIME);
+  //}
   GPIOB->BSRR |= LCD_DE_Pin;
   HAL_Delay(LCD_DE_TIME);
   GPIOB->BSRR |= (LCD_DE_Pin<<16);
@@ -602,10 +602,9 @@ void SetCursorLCD(uint8_t row, uint8_t col){
 void SendStringLCD(char* stringLCD){
   char *c;
   c = stringLCD;
-  while ((c != 0) && (*c != 0))
-  {
-      SendByteLCD(*c, 1);
-      c++;
+  while ((c != 0) && (*c != 0)){
+    SendByteLCD(*c++, 1);
+    //c++;
   }
 }
 /* USER CODE END 4 */
