@@ -46,7 +46,8 @@
     <configuration
       Name="Debug"
       c_preprocessor_definitions="USE_HAL_DRIVER;STM32F401xC"
-      c_user_include_directories="$(ProjectDir)/HausblumenControllerMX/Core/Inc;$(ProjectDir)/HausblumenControllerMX/Drivers/STM32F4xx_HAL_Driver/Inc;$(ProjectDir)/HausblumenControllerMX/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;$(ProjectDir)/HausblumenControllerMX/Drivers/CMSIS/Device/ST/STM32F4xx/Include;$(ProjectDir)/HausblumenControllerMX/Drivers/CMSIS/Include;." />
+      c_user_include_directories="$(ProjectDir)/HausblumenControllerMX/Core/Inc;$(ProjectDir)/HausblumenControllerMX/Drivers/STM32F4xx_HAL_Driver/Inc;$(ProjectDir)/HausblumenControllerMX/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;$(ProjectDir)/HausblumenControllerMX/Drivers/CMSIS/Device/ST/STM32F4xx/Include;$(ProjectDir)/HausblumenControllerMX/Drivers/CMSIS/Include;."
+      target_loader_erase_all="No" />
     <folder
       Name="CMSIS_5"
       exclude=""

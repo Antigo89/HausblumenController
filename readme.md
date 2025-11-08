@@ -7,7 +7,7 @@
 </div>	
 
 Устройство поддержания влажности и освещённости для домашних цветов.
-<div>Status: Инициализация дисплея, создание меню, обработка энкодера.</div>
+<div>Status: Обработка энкодера и кнопки. Отрисовка значений в меню.</div>
 <details><summary><b>Tools</b></summary>
 <div>IDE: Segger Embedded Studio</div>
 <div>Codegenerate: CubeMX</div>

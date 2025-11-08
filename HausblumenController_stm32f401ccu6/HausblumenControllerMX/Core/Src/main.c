@@ -16,6 +16,18 @@
   *
   ******************************************************************************
   */
+
+
+  //Naming
+  /*
+  first string WS1602 - position menu
+  second string WS1602 - values
+
+  menu - show data/values
+  subMenu - settings in menu, set values
+  */
+
+
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
@@ -23,6 +35,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdlib.h>
+#include <string.h>
 #include "display_menu.h"
 /* USER CODE END Includes */
 
@@ -35,7 +48,8 @@
 /* USER CODE BEGIN PD */
 #define LCD_DE_TIME 1
 
-#define LCD_LED_TIME 3000
+#define LCD_LED_TIME 5000
+#define SUB_MENU_TIMEOUT 10000
 
 #define MENU_PERIOD 500
 /* USER CODE END PD */
@@ -58,9 +72,13 @@ TIM_HandleTypeDef htim3;
 //Timers
 uint32_t timerLCDLED = 0;
 uint32_t timerMenu = 0;
+uint32_t timerSubMenu = 0;
 
 //Menu
-uint8_t oldPositionMenu = 0;
+displayMenu_t positionMenu = 0;
+subMenu_t positionSubMenu = SUB_MENU_OUT;
+uint16_t flagUpdateSubMenu = 0;
+//uint16_t 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -129,16 +147,13 @@ int main(void)
   //TODO: Preferences load
   //TODO: BME280_Init()
   //TODO: get DataTime
-
-
   
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-    //TODO: Encoder value reset
-
-    
+    //Encoder value reset
+    TIM3->CNT = 100;
 
   while (1)
   {
@@ -169,54 +184,95 @@ int main(void)
     }
     //Menu
     if(HAL_GetTick() - timerMenu > MENU_PERIOD){
-      //TODO: menu Handler
-      //TODO: Encoder, set CursorPosition and LCD_LED_Pin on/off
-      //uint8_t newPosition = TIM3->CNT;
+      //encoder Handler
       if(TIM3->CNT != 100){
-        uint8_t newPosition = TIM3->CNT;
+        //uint8_t newPosition = TIM3->CNT;
+        uint8_t encoderValue = TIM3->CNT;
         TIM3->CNT = 100;
-        if(newPosition>100){
-          newPosition = (newPosition-100);
-          oldPositionMenu += newPosition;
+
+        if(encoderValue>100){
+          encoderValue = (encoderValue-100);
+          encoderValue = encoderValue >> 1;
+          if(positionSubMenu == SUB_MENU_OUT){
+            positionMenu += encoderValue;
+            positionMenu = positionMenu>MENU_MAX_POSITION?MENU_MIN_POSITION:positionMenu;
+          }//else{
+            //TODO: pointer other value
+          //}
         }else{
-          newPosition = (100 - newPosition);
-          if(newPosition < oldPositionMenu){
-            oldPositionMenu -= newPosition;
-          }else{
-            oldPositionMenu = 0;
-          }
+          encoderValue = (100 - encoderValue);
+          encoderValue = encoderValue >> 1;
+          if(positionSubMenu == SUB_MENU_OUT){
+            if(encoderValue>positionMenu){
+              positionMenu = MENU_MAX_POSITION;
+            }else{
+              positionMenu -= encoderValue;
+            }
+          }//else{
+            //TODO: pointer other value
+          //}
         }
+        
         //Update new position display WH1602
-        Clear_LCD();
-        SetCursorLCD(0, 0);
-        SendStringLCD(punct1);
-        SetCursorLCD(1, 0);
-        SendStringLCD(punct2);
+        if(positionSubMenu == SUB_MENU_OUT){
+          Clear_LCD();
+          SetCursorLCD(0, 0);
+          SendStringLCD(punct_s[positionMenu]);
+        }
+        //flag update value
+        flagUpdateSubMenu|=(1<<positionMenu);
         //LedOn display
         GPIOC->BSRR |= LCD_LED_Pin;
         timerLCDLED = HAL_GetTick();
+      }//end encoder Handler
 
-        //Update new value display WH1602
-        char positionStr[4] = {0,0,0,0};
-        itoa(oldPositionMenu, positionStr, 10);
-        SetCursorLCD(0, 10);
-        SendStringLCD(positionStr);
+      //key Handler
+      //TODO: Key, set positionSubMenu, update and save value, out positionSubMenu
 
-        //end encoder proc
-      }
-      //TODO: Key, set CursorLevel
-      
+      //Update new value display WH1602
+      if(flagUpdateSubMenu&(1<<positionMenu)){
+        SetCursorLCD(1, 0);
+        SendStringLCD("                ");
+        SetCursorLCD(1, 0);
+        char valueStr[16];
+        memset(&valueStr[0], 0, 16);
+        //TODO: start transform int to string
+        itoa(positionMenu, valueStr, 10);
+        SendStringLCD(valueStr);
+        //
+        flagUpdateSubMenu &= ~(1<<positionMenu);
+        //show cursor
+        if(positionSubMenu > SUB_MENU_OUT){
+          SendByteLCD(0b00001111, 0);
+          uint8_t cursorMarker = 0;
+          if(positionSubMenu < SUB_MENU_LVL){
+            cursorMarker = (positionSubMenu - 1)*3;
+          }
+          SetCursorLCD(1, cursorMarker);
+        }else{
+          SendByteLCD(0b00001100, 0);
+        }//end show cursor
+      }//end Update value display
       timerMenu = HAL_GetTick();
-    }
-    //LCD_LED off
+    }//end Menu
+
+    //LCD_LED off timeout
     if((GPIOC->ODR & LCD_LED_Pin)&&(HAL_GetTick() - timerLCDLED > LCD_LED_TIME)){
       GPIOC->BSRR |= (LCD_LED_Pin<<16);
-      //Clear_LCD();
     }
-      
+
+    //subMenu timeout
+    if(positionSubMenu > SUB_MENU_OUT){
+      if(HAL_GetTick() - timerSubMenu > SUB_MENU_TIMEOUT){
+        positionSubMenu = SUB_MENU_OUT;
+        flagUpdateSubMenu|=(1<<positionMenu);
+      }else{
+        timerLCDLED = HAL_GetTick();
+      }
+    }  
 
 
-  }
+  }//end while()
   /* USER CODE END 3 */
 }
 
@@ -545,15 +601,10 @@ void SendByteLCD(char ByteToSend, int IsData){
   }else{
     GPIOB->BSRR |= (LCD_RS_Pin<<16);
   }
-  //if(GPIOB->ODR&LCD_DE_Pin){
-  //  GPIOB->BSRR |= (LCD_DE_Pin<<16);
-  //  HAL_Delay(LCD_DE_TIME);
-  //}
   GPIOB->BSRR |= LCD_DE_Pin;
   HAL_Delay(LCD_DE_TIME);
   GPIOB->BSRR |= (LCD_DE_Pin<<16);
   HAL_Delay(LCD_DE_TIME);
-
   GPIOA->BSRR |= (0x0F<<16);
   GPIOA->ODR |= (ByteToSend&0x0F);
  
@@ -562,10 +613,6 @@ void SendByteLCD(char ByteToSend, int IsData){
   }else{
     GPIOB->BSRR |= (LCD_RS_Pin<<16);
   }
-  //if(GPIOB->ODR&LCD_DE_Pin){
-  //  GPIOB->BSRR |= (LCD_DE_Pin<<16);
-  //  HAL_Delay(LCD_DE_TIME);
-  //}
   GPIOB->BSRR |= LCD_DE_Pin;
   HAL_Delay(LCD_DE_TIME);
   GPIOB->BSRR |= (LCD_DE_Pin<<16);
@@ -584,7 +631,7 @@ void LCD_Init(void){
   SendByteLCD(0x28, 0);
   SendByteLCD(0x0E, 0);
   SendByteLCD(0x06, 0);
-
+  SendByteLCD(0b00001100, 0);
 }
 //Display functions: Clear
 void Clear_LCD(void){
@@ -604,7 +651,6 @@ void SendStringLCD(char* stringLCD){
   c = stringLCD;
   while ((c != 0) && (*c != 0)){
     SendByteLCD(*c++, 1);
-    //c++;
   }
 }
 /* USER CODE END 4 */
