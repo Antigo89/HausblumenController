@@ -61,7 +61,7 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="23" y="94" useTextEdit="1" folds0="227,279,329,363,616" path="HausblumenControllerMX/Core/Src/main.c" left="0" selected="1" top="77" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="91" useTextEdit="1" folds0="227,279,329,363,616" path="HausblumenControllerMX/Core/Src/main.c" left="0" selected="1" top="77" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="24" y="62" useTextEdit="1" path="HausblumenControllerMX/Core/Inc/main.h" left="0" top="21" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="389" useTextEdit="1" path="HausblumenControllerMX/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" left="0" top="366" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="11" y="24" useTextEdit="1" path="HausblumenControllerMX/Core/Inc/display_menu.h" left="0" top="0" codecName="Default"/>
