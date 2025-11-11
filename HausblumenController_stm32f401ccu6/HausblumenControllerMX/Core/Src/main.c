@@ -52,6 +52,7 @@
 #define SUB_MENU_TIMEOUT 10000
 
 #define MENU_PERIOD 500
+//#define BUTTON_PERIOD 100
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -218,6 +219,8 @@ int main(void)
           Clear_LCD();
           SetCursorLCD(0, 0);
           SendStringLCD(punct_s[positionMenu]);
+        }else{
+          timerSubMenu = HAL_GetTick();
         }
         //flag update value
         flagUpdateSubMenu|=(1<<positionMenu);
@@ -225,9 +228,6 @@ int main(void)
         GPIOC->BSRR |= LCD_LED_Pin;
         timerLCDLED = HAL_GetTick();
       }//end encoder Handler
-
-      //key Handler
-      //TODO: Key, set positionSubMenu, update and save value, out positionSubMenu
 
       //Update new value display WH1602
       if(flagUpdateSubMenu&(1<<positionMenu)){
@@ -245,10 +245,14 @@ int main(void)
         if(positionSubMenu > SUB_MENU_OUT){
           SendByteLCD(0b00001111, 0);
           uint8_t cursorMarker = 0;
-          if(positionSubMenu < SUB_MENU_LVL){
+          if(positionSubMenu < SUB_MENU_LVL1){
             cursorMarker = (positionSubMenu - 1)*3;
+            
           }
           SetCursorLCD(1, cursorMarker);
+          //TEST positionSubMenu
+          itoa(positionSubMenu, valueStr, 10);
+          SendStringLCD(valueStr);
         }else{
           SendByteLCD(0b00001100, 0);
         }//end show cursor
@@ -570,11 +574,11 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : Photo_Input_Pin */
-  GPIO_InitStruct.Pin = Photo_Input_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  /*Configure GPIO pin : PA5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(Photo_Input_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : LCD_RS_Pin LCD_DE_Pin LIGHT_Pin STEAM_Pin
                            WATER_Pin */
@@ -584,6 +588,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
 }
 
@@ -652,6 +660,55 @@ void SendStringLCD(char* stringLCD){
   while ((c != 0) && (*c != 0)){
     SendByteLCD(*c++, 1);
   }
+}
+//Interrupt Button
+void EXTI9_5_IRQHandler(void){
+  //TEST Interrupt
+  GPIOC->BSRR |= LCD_LED_Pin;
+  timerLCDLED = HAL_GetTick();
+  if(positionSubMenu == SUB_MENU_OUT){
+    switch(positionMenu){
+      case(MENU_LIGHT_TIME):
+        positionSubMenu = SUB_MENU_LVL1;
+        break;
+      case(MENU_LIGHT):
+        positionSubMenu = SUB_MENU_LVL1;
+        break;
+      case(MENU_HUMIDITY):
+        positionSubMenu = SUB_MENU_LVL1;
+        break;
+      case(MENU_DATETIME):
+        positionSubMenu = SUB_MENU_DATETIME_DAY;
+        break;
+      case(MENU_WATER_TIME):
+        positionSubMenu = SUB_MENU_LVL1;
+        break;
+      case(MENU_WATER_PERIOD):
+        positionSubMenu = SUB_MENU_LVL1;
+        break;
+      case(MENU_LIGHT_OUT):
+                HAL_GPIO_TogglePin(LIGHT_GPIO_Port, LIGHT_Pin);
+        break;
+      case(MENU_STEAM_OUT):
+        HAL_GPIO_TogglePin(STEAM_GPIO_Port, STEAM_Pin);
+        break;
+      case(MENU_WATER_OUT):
+        HAL_GPIO_TogglePin(WATER_GPIO_Port, WATER_Pin);
+        break;
+    }
+    timerSubMenu = HAL_GetTick();
+  }else{
+    if(positionSubMenu < SUB_MENU_DATETIME_MINUTE){
+      positionSubMenu++;
+      timerSubMenu = HAL_GetTick();
+    }else{
+      //TODO: save(positionSubMenu);
+      positionSubMenu = SUB_MENU_OUT;
+    }
+  }
+  //Update information an display
+  flagUpdateSubMenu |= (1<<positionMenu);
+  EXTI->PR |= EXTI_PR_PR5;
 }
 /* USER CODE END 4 */
 
